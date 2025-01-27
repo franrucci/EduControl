@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+    <title></title>
+    <style>
+        /* Estilos Básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            color: #000;
+            background-color: #f9f9f9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+            table.border th, table.border td {
+                padding: 6px;
+                border: 1px solid black;
+            }
+
+        th {
+            background-color: #d8d8d8;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .header-table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .header-center {
+            text-align: center;
+        }
+
+            .header-center h1 {
+                margin: 0;
+                font-size: 24px;
+            }
+
+        .section-title {
+            background-color: #d8d8d8;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .grades, .promedios-trimestre, .comments, .attendance, .summary {
+            width: 100%;
+        }
+
+            .grades table th, .promedios-trimestre table th, .comments table th, .attendance table th, .summary table th {
+                background-color: #4CAF50;
+                color: white;
+                text-transform: uppercase;
+            }
+
+            .grades tr:nth-child(even) td, .promedios-trimestre tr:nth-child(even) td, .comments tr:nth-child(even) td, .attendance tr:nth-child(even) td, .summary tr:nth-child(even) td {
+                background-color: #f1f1f1;
+            }
+
+            .grades .final-note {
+                background-color: #d0ffd0;
+            }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <table class="header-table">
+        <tr>
+            <td style="width:20%;"></td>
+            <td style="width:60%;" class="header-center">
+                <h1>BOLETIN ESCOLAR</h1>
+            </td>
+            <td style="width:20%;"></td>
+        </tr>
+    </table>
+
+    <!-- Información del Alumno -->
+    <table>
+        <tr>
+            <td style="width:20%;"><strong>Alumno:</strong></td>
+            <td style="width:30%;">@ALUMNO</td>
+            <td style="width:20%;"><strong>Ciclo Academico:</strong></td>
+            <td style="width:30%;">@CICLO_ACADEMICO</td>
+        </tr>
+        <tr>
+            <td style="width:20%;"><strong>Grado:</strong></td>
+            <td style="width:30%;">@GRADO</td>
+        </tr>
+    </table>
+
+    <!-- Tabla de Calificaciones -->
+    <table class="border">
+        <thead>
+            <tr>
+                <th>MATERIA</th>
+                <th>TRIMESTRE 1</th>
+                <th>TRIMESTRE 2</th>
+                <th>TRIMESTRE 3</th>
+                <th>NOTA FINAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            @FILAS_CALIFICACIONES
+        </tbody>
+    </table>
+
+    <!-- Promedios Totales por Trimestre -->
+    <table class="border">
+        <tr class="section-title">
+            <td colspan="6">PROMEDIOS TRIMESTRALES</td>
+        </tr>
+        <tr>
+            <td><strong>Trimestre 1:</strong></td>
+            <td>@PROMEDIO_TRIMESTRE1</td>
+            <td><strong>Trimestre 2:</strong></td>
+            <td>@PROMEDIO_TRIMESTRE2</td>
+            <td><strong>Trimestre 3:</strong></td>
+            <td>@PROMEDIO_TRIMESTRE3</td>
+        </tr>
+    </table>
+
+    <!-- Observaciones -->
+    <table class="border">
+        <tr class="section-title">
+            <td colspan="6">OBSERVACIONES</td>
+        </tr>
+        <tr>
+            <td><strong>Trimestre 1:</strong></td>
+            <td>@OBSERVACIONES_TRIMESTRE1</td>
+            <td><strong>Trimestre 2:</strong></td>
+            <td>@OBSERVACIONES_TRIMESTRE2</td>
+            <td><strong>Trimestre 3:</strong></td>
+            <td>@OBSERVACIONES_TRIMESTRE3</td>
+        </tr>
+    </table>
+
+    <!-- Asistencias -->
+    <table class="border">
+        <tr class="section-title">
+            <td colspan="6">PROMEDIO DE ASISTENCIAS</td>
+        </tr>
+        <tr>
+            <td><strong>Trimestre 1:</strong></td>
+            <td>@ASISTENCIA_TRIMESTRE1%</td>
+            <td><strong>Trimestre 2:</strong></td>
+            <td>@ASISTENCIA_TRIMESTRE2%</td>
+            <td><strong>Trimestre 3:</strong></td>
+            <td>@ASISTENCIA_TRIMESTRE3%</td>
+        </tr>
+    </table>
+
+    <!-- Resumen Final -->
+    <table class="border">
+        <tr>
+            <td><strong>PROMEDIO FINAL ANUAL:</strong></td>
+            <td>@PROMEDIO_FINAL_ANUAL</td>
+            <td><strong>ESTADO FINAL:</strong></td>
+            <td>@ESTADO_FINAL</td>
+        </tr>
+    </table>
+</body>
+</html>
